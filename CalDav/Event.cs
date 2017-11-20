@@ -137,7 +137,7 @@ namespace CalDav {
 				wrtr.Property("CATEGORIES", Categories);
 			wrtr.Property("CLASS", Class);
 			wrtr.Property("CREATED", Created);
-			wrtr.Property("DESCRIPTION", Description);
+			wrtr.Property("DESCRIPTION", Description, true);
 			wrtr.Property("DTEND", IsAllDay ? (End ?? Start.Value).Date : End);
 			wrtr.Property("DTSTAMP", DTSTAMP);
 			wrtr.Property("DTSTART", IsAllDay ? (Start ?? End.Value).Date : Start);
