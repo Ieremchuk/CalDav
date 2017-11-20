@@ -98,9 +98,9 @@ namespace CalDav {
 
 		private static string PropertyEncode(string value) {
 			return value
-				.Replace("\n", "\\n")
+                .Replace("\\", "\\\\")
+                .Replace("\n", "\\n")
 				.Replace("\r", "\\r")
-				.Replace("\\", "\\\\")
 				.Replace(";", "\\;")
 				.Replace(",", "\\,")
 				.Replace("\r", "");
@@ -109,9 +109,9 @@ namespace CalDav {
 			return value
 				.Replace("\\n", "\n")
 				.Replace("\\r", "\r")
-				.Replace("\\\\", "\\")
 				.Replace("\\;", ";")
-				.Replace("\\,", ",");
+				.Replace("\\,", ",")
+                .Replace("\\\\", "\\");
 		}
 		internal static void Property(this System.IO.TextWriter wrtr, string name, string value, bool encoded = false, XNameValueCollection parameters = null) {
 			if (value == null) return;
